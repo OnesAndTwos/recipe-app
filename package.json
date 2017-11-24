@@ -3,18 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "express": "^4.16.2",
-    "material-ui": "^0.19.4",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "webpack": "^3.6.0"
+    "express": "^4.16.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,7 +14,23 @@
     "start": "concurrently --kill-others 'npm run watch-server' 'npm run watch-client'"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0",
-    "nodemon": "^1.12.1"
+    "babel-core": "latest",
+    "babel-loader": "latest",
+    "babel-preset-env": "latest",
+    "babel-preset-react": "latest",
+    "babel-preset-stage-2": "latest",
+    "concurrently": "latest",
+    "jss": "latest",
+    "jss-preset-default": "latest",
+    "material-ui": "next",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "nodemon": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-jss": "latest",
+    "react-redux": "latest",
+    "redux": "latest",
+    "webpack": "latest"
   }
 }

@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import recipeApp from './reducers/recipeApp';
-import RecipeApp from './components/RecipeApp';
+import Index from './pages/Index';
 
 render(
   <Provider store={createStore(recipeApp)}>
-    <RecipeApp />
+    <Index />
   </Provider>,
   document.getElementById("root")
 );
