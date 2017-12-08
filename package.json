@@ -22,7 +22,7 @@
     "babel-preset-env": "latest",
     "babel-preset-react": "latest",
     "babel-preset-stage-2": "latest",
-    "concurrently": "latest",
+    "concurrently": "^3.5.1",
     "jss": "latest",
     "jss-preset-default": "latest",
     "material-ui": "next",
