@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import AppBar from "material-ui/AppBar";
+import Toolbar from "material-ui/Toolbar";
+import Button from "material-ui/Button";
+import Grid from "material-ui/Grid";
+import Typography from "material-ui/Typography";
+import Dialog, {DialogTitle, DialogContent, DialogContentText, DialogActions} from "material-ui/Dialog";
 
+import withRoot from "../styles/withRoot";
 import { withStyles } from 'material-ui/styles';
-import withRoot from '../styles/withRoot';
 
-import Button from 'material-ui/Button';
-import AppBar from 'material-ui/AppBar';
-import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
-import Dialog, {
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-} from 'material-ui/Dialog';
-
-const styles = {
+const styles = theme => ({
   root: {
-
+    flexGrow: 1
   },
-};
+  container: {
+    marginTop: "30px",
+  }
+});
 
 class Index extends Component {
   state = {
@@ -39,21 +38,48 @@ class Index extends Component {
   };
 
   render() {
+
     return (
       <div className={this.props.classes.root}>
 
-        <Grid container spacing={24}>
+        <AppBar color="default">
+          <Toolbar>
+            <Typography type="title" color="inherit">
+              Cookbook
+            </Typography>
+          </Toolbar>
+        </AppBar>
+
+        <Grid container spacing={24} className={this.props.classes.container}>
+
           <Grid item xs={12}>
 
-            <AppBar title="Cookbook" />
-
           </Grid>
+
+          <Grid className={this.props.classes.thing} item xs={4}>
+          </Grid>
+
+          <Grid className={this.props.classes.thing} item xs={4}>
+          </Grid>
+
+          <Grid className={this.props.classes.thing} item xs={4}>
+          </Grid>
+
+          <Grid className={this.props.classes.thing} item xs={4}>
+          </Grid>
+
+          <Grid className={this.props.classes.thing} item xs={4}>
+          </Grid>
+
+          <Grid className={this.props.classes.thing} item xs={4}>
+          </Grid>
+
           <Grid item xs={12}>
 
             <Dialog open={this.state.open} onRequestClose={this.handleRequestClose}>
               <DialogTitle>Cookbook</DialogTitle>
               <DialogContent>
-                <DialogContentText>Soon there will be recipes here</DialogContentText>
+                <DialogContentText>{this.props.message}</DialogContentText>
               </DialogContent>
               <DialogActions>
                 <Button color="primary" onClick={this.handleRequestClose}>
@@ -70,6 +96,7 @@ class Index extends Component {
             </Button>
 
           </Grid>
+
         </Grid>
 
       </div>
@@ -81,4 +108,13 @@ Index.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withRoot(withStyles(styles)(Index));
+const mapStateToProps = (state) => {
+  return {
+    message: state.message
+  }
+
+};
+
+export default connect(
+  mapStateToProps
+)(withRoot(withStyles(styles)(Index)));
