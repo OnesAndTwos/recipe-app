@@ -1,5 +1,5 @@
-import express from 'express';
-import socket from '../socket/server';
+const express = require('express');
+const socket = require('../socket/server');
 
 const router = express.Router();
 

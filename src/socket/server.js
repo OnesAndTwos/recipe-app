@@ -1,4 +1,4 @@
-import SocketIO from 'socket.io';
+const SocketIO = require('socket.io');
 
 class Server {
 
@@ -16,4 +16,4 @@ class Server {
 
 }
 
-export default new Server();
+module.exports = new Server();

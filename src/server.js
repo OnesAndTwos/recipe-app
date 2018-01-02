@@ -1,16 +1,17 @@
-import Express from 'express';
-import socket from './socket/server';
-import http from 'http';
-import bodyParser from 'body-parser';
+const express = require('express');
+const bodyParser = require('body-parser');
 
-const app = Express();
+const socket = require('./socket/server');
+const http = require('http');
+
+const app = express();
 const server = http.Server(app);
 
 socket.init(server);
 
 app.use(bodyParser.json());
-app.use('/public', Express.static('public'));
-app.use('/dist', Express.static('dist'));
+app.use('/public', express.static('public'));
+app.use('/dist', express.static('dist'));
 app.use('/ai', require('./ai/index'));
 
 app.use('*', (req, res) => {
