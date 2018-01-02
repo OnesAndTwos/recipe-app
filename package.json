@@ -30,7 +30,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-client": "webpack",
     "watch-client": "webpack --watch",
-    "start-server": "babel-node src/server.js",
+    "start-server": "node src/server.js",
     "watch-server": "nodemon src/server.js --exec babel-node",
     "watch": "concurrently --kill-others 'npm run watch-server' 'npm run watch-client'",
     "start": "npm run build-client && npm run start-server"
