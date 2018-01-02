@@ -15,7 +15,7 @@
     "watch-client": "webpack --watch",
     "start-server": "babel-node src/server.js",
     "watch-server": "nodemon src/server.js --exec babel-node",
-    "start": "concurrently --kill-others 'npm run start-server' 'npm run build-client'"
+    "start": "concurrently --kill-others 'npm run watch-server' 'npm run watch-client'"
   },
   "devDependencies": {
     "babel-core": "latest",
