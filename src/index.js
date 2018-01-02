@@ -1,28 +1,12 @@
-import React from 'react';
+import React from "react";
+import {render} from "react-dom";
 
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import configureStore from './configureStore';
+import configureSocket from './configureSocket';
 
-import recipeApp from './reducers/recipeApp';
-import Index from './pages/Index';
+import Root from './Root';
 
-import io from 'socket.io-client';
+const store = configureStore();
+const socket = configureSocket(store);
 
-const socket = io();
-
-var store = createStore(recipeApp);
-
-socket.on("message", data => {
-  store.dispatch({
-    type: 'SHOW_MESSAGE',
-    ...data
-  });
-});
-
-render(
-  <Provider store={store}>
-    <Index />
-  </Provider>,
-  document.getElementById("root")
-);
+render(<Root store={store} />, document.getElementById('root'));

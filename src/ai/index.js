@@ -1,22 +1,23 @@
 const express = require('express');
-const socket = require('../socket/server');
-
 const router = express.Router();
 
-router.post('/', (req, res, next) => {
+const actions = {
+  "search-recipe": require("./search")
+};
 
+router.post('/', (req, res) => {
   const result = req.body.result;
   const action = result.action;
   const parameters = result.parameters;
 
-  console.log("Being spoke to...");
-  console.log(action);
-  console.log(parameters);
+  var resolvedAction = actions[action];
 
-  socket.emit('message', { action, parameters });
-  
-  next();
-
+  if(resolvedAction) {
+    resolvedAction(parameters);
+  } else {
+    console.error(`There was no resolved action for ${action}`)
+  }
+  res.json({});
 });
 
 module.exports = router;
