@@ -14,6 +14,8 @@ router.post('/', (req, res, next) => {
   console.log(parameters);
 
   socket.emit('message', { action, parameters });
+  
+  next();
 
 });
 
