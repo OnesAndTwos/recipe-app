@@ -50,7 +50,7 @@ class Search extends Component {
 
         {
           this.props.recipes.map(recipe => (
-            <Grid container spacing={24}>
+            <Grid key={recipe.id} container spacing={24}>
 
               <Grid item xs={4}>
                 <img src={recipe.image} width="100%" />
