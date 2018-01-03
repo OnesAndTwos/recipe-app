@@ -13,11 +13,18 @@ router.post('/', (req, res) => {
   var resolvedAction = actions[action];
 
   if(resolvedAction) {
-    resolvedAction(parameters);
+    res.json(
+      resolvedAction(parameters)
+    );
   } else {
     console.error(`There was no resolved action for ${action}`)
+    res.json({
+      "speech": "There was an error",
+      "displayText": "There was an error",
+      "source": "cookbook"
+    });
   }
-  res.json({});
+
 });
 
 module.exports = router;
