@@ -10,12 +10,10 @@ import AppBar from "../components/AppBar";
 const styles = theme => ({
 
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginTop: "75px",
+    padding: "0 12px"
   },
-
-  container: {
-    marginTop: "65px",
-  }
 
 });
 
@@ -30,12 +28,22 @@ class Index extends Component {
 
         <AppBar />
 
-        <Grid container spacing={24} className={classes.container}>
+        <Grid container spacing={24}>
 
-          <Grid item xs={12}>
-            <Typography type="subheading" gutterBottom>
-              Index {this.props.message}
+          <Grid item xs={6}>
+            <img src="//ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_cacciatore_with_54620_16x9.jpg" />
+          </Grid>
+
+          <Grid item xs={6}>
+
+            <Typography type="display2" gutterBottom>
+              Welcome to the BBC Food Cookbook!
             </Typography>
+
+            <Typography gutterBottom>
+              This is to Showcase the integration with Google Home
+            </Typography>
+
           </Grid>
 
         </Grid>

@@ -6,6 +6,7 @@ import TextField from "material-ui/TextField";
 import withRoot from "../styles/withRoot";
 import {withStyles} from "material-ui/styles";
 import AppBar from "../components/AppBar";
+import Typography from "material-ui/Typography";
 
 const styles = theme => ({
 
@@ -44,7 +45,32 @@ class Search extends Component {
 
           </Grid>
 
+
         </Grid>
+
+        {
+          this.props.recipes.map(recipe => (
+            <Grid container spacing={24}>
+
+              <Grid item xs={4}>
+                <img src={recipe.image} width="100%" />
+              </Grid>
+
+              <Grid item xs={8}>
+                <Typography type="display2" gutterBottom>
+                  {recipe.title}
+                </Typography>
+                <Typography gutterBottom>
+                  {recipe.timings.cooking}
+                </Typography>
+                <Typography gutterBottom>
+                  {recipe.timings.preparation}
+                </Typography>
+              </Grid>
+
+            </Grid>
+          ))
+        }
 
       </div>
     );
@@ -57,10 +83,9 @@ Search.propTypes = {
 
 const mapStateToProps = (state) => {
 
-  console.log(state);
-
   return {
-    searchTerm: state.search.searchTerm
+    searchTerm: state.search.searchTerm,
+    recipes: state.search.results
   }
 
 };

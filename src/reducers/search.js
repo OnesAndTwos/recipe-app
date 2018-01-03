@@ -1,8 +1,4 @@
-export default (state = {}, action) => {
-
-
-  console.log(action);
-  console.log({results: [], searchTerm: action.searchTerm});
+export default (state = {results: [], searchTerm: ''}, action) => {
 
   switch (action.type) {
     case 'SEARCH_RESULTS':

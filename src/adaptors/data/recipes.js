@@ -3,6 +3,7 @@ module.exports = [
   {
     id: "lemon-blueberry-muffins",
     title: "Lemon and blueberry muffins",
+    image: "https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/lemon_and_blueberry_11428_16x9.jpg",
     timings: {
       preparation: "Less than 30 mins",
       cooking: "10 to 30 mins",

@@ -1,18 +1,20 @@
 import React  from 'react';
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 
 import Index from "./pages/Index";
 import Search from "./pages/Search";
 
-const Root = ({ store }) => (
+import history from './configureHistory';
+
+const Root = ({ props, store }) => (
   <Provider store={store}>
-    <BrowserRouter>
+    <Router history={history}>
       <Switch>
         <Route path="/search" component={Search}/>
         <Route path="/" component={Index}/>
       </Switch>
-    </BrowserRouter>
+    </Router>
   </Provider>
 );
 

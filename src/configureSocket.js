@@ -1,5 +1,7 @@
 import io from "socket.io-client";
 
+import history from './configureHistory';
+
 const socket = io();
 
 function searchRecipe(searchTerm) {
@@ -9,10 +11,11 @@ function searchRecipe(searchTerm) {
 export default (store) => {
 
   const events = {
+
     "SEARCH_RECIPE": (searchTerm) => {
       return (dispatch) => {
-
         searchRecipe(searchTerm).then((results) => {
+          history.push("/search");
           store.dispatch({
             type: "SEARCH_RESULTS",
             results, searchTerm
