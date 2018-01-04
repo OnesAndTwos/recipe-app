@@ -49,23 +49,34 @@ class Search extends Component {
         </Grid>
 
         {
-          this.props.recipes.map(recipe => (
+          this.props.recipes.map((recipe, index) => (
             <Grid key={recipe.id} container spacing={24}>
 
-              <Grid item xs={4}>
+
+              <Grid item xs={1} md={1}>
+                <Typography type="display2" gutterBottom>
+                  {index+1}
+                </Typography>
+              </Grid>
+
+              <Grid item xs={11} md={5}>
                 <img src={recipe.image} width="100%" />
               </Grid>
 
-              <Grid item xs={8}>
+              <Grid item xs={12} md={6}>
+
                 <Typography type="display2" gutterBottom>
                   {recipe.title}
                 </Typography>
+
                 <Typography gutterBottom>
                   {recipe.timings.cooking}
                 </Typography>
+
                 <Typography gutterBottom>
                   {recipe.timings.preparation}
                 </Typography>
+
               </Grid>
 
             </Grid>
